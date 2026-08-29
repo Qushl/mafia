@@ -8,11 +8,9 @@ import {
   type SiteContent,
   type TariffCard,
 } from "./content";
-import { mediaSrc } from "./utils";
+import { mediaSrc, type MediaLike } from "./utils";
 
-type Upload = { url?: string | null } | number | null | undefined;
-
-function photo(upload: Upload, url?: string | null, fallback = "") {
+function photo(upload: MediaLike, url?: string | null, fallback = "") {
   return mediaSrc(upload, url) || fallback;
 }
 
@@ -33,7 +31,7 @@ export async function getSiteContent(): Promise<SiteContent> {
       name: String(doc.name),
       role: String(doc.role),
       bio: String(doc.bio),
-      photoUrl: photo(doc.photo as Upload, doc.photoUrl as string | undefined, fallbackContent.hosts[0]?.photoUrl),
+      photoUrl: photo(doc.photo, doc.photoUrl ?? undefined, fallbackContent.hosts[0]?.photoUrl),
     }));
 
     const mappedTariffs: TariffCard[] = tariffs.docs.map((doc) => ({
@@ -53,7 +51,7 @@ export async function getSiteContent(): Promise<SiteContent> {
       title: String(doc.title),
       audience: doc.audience as EventTypeCard["audience"],
       description: String(doc.description),
-      photoUrl: photo(doc.photo as Upload, doc.photoUrl as string | undefined),
+      photoUrl: photo(doc.photo, doc.photoUrl ?? undefined),
     }));
 
     const mappedReviews: ReviewCard[] = reviews.docs.map((doc) => ({
@@ -68,7 +66,7 @@ export async function getSiteContent(): Promise<SiteContent> {
       id: String(doc.id),
       title: String(doc.title),
       caption: String(doc.caption || ""),
-      photoUrl: photo(doc.photo as Upload, doc.photoUrl as string | undefined),
+      photoUrl: photo(doc.photo, doc.photoUrl ?? undefined),
     }));
 
     return {

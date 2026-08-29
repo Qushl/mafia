@@ -3,12 +3,12 @@ import type { HostCard } from "@/lib/content";
 
 export function Hosts({ hosts }: { hosts: HostCard[] }) {
   return (
-    <section id="hosts" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="text-xs uppercase tracking-[0.32em] text-[var(--gold)]">Ведущие</p>
-      <h2 className="mt-3 max-w-xl text-3xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">
+    <section id="hosts" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <p className="text-[10px] uppercase tracking-[0.26em] text-[var(--gold)] sm:text-xs sm:tracking-[0.32em]">Ведущие</p>
+      <h2 className="mt-3 max-w-xl text-2xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">
         Люди, которые держат стол
       </h2>
-      <div className="mt-12 flex gap-5 overflow-x-auto pb-4 md:grid md:grid-cols-4 md:overflow-visible">
+      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 sm:mt-12 sm:gap-5 md:grid md:grid-cols-4 md:overflow-visible">
         {hosts.map((host) => (
           <article key={host.id} className="min-w-[240px] shrink-0 md:min-w-0">
             <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">

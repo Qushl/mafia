@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Полночь
 
-## Getting Started
+Сайт агентства игровых вечеров на Next.js + Payload CMS.
 
-First, run the development server:
+## Что в проекте
+
+- Next.js 15 + App Router
+- Payload CMS для контента и админки
+- PostgreSQL через `@payloadcms/db-postgres`
+- Заявки сохраняются в коллекцию Payload `leads`
+- Telegram-уведомления для новых заявок
+- Сайт-страница с блоками: герой, форматы, ведущие, отзывы, галерея, цены
+
+## Быстрый старт
+
+1. Установите зависимости:
+
+```bash
+npm install
+```
+
+2. Создайте `.env.local` на основе переменных окружения проекта:
+
+```bash
+DATABASE_URL=postgresql://user:password@localhost:5432/polnoch
+PAYLOAD_SECRET=change-me
+TELEGRAM_BOT_TOKEN=your_token
+TELEGRAM_CHAT_ID=your_chat_id
+```
+
+3. Запустите dev-сервер:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Откройте:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+http://localhost:3000
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Полезные команды
 
-## Learn More
+```bash
+npm run build
+npm run lint
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+## CMS
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Payload-админка доступна по URL:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```text
+http://localhost:3000/admin
+```
 
-## Deploy on Vercel
+Контент хранится в коллекциях: `media`, `hosts`, `tariffs`, `event-types`, `reviews`, `gallery`, `leads`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Важные замечания
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `.env*` уже добавлен в `.gitignore`.
+- Не храните секреты в репозитории и не коммитьте `.env.local`.
+- В проекте используется Payload как единственный источник записей по заявкам.

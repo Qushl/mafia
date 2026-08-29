@@ -1,5 +1,4 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
 import { getCms } from "@/lib/payload";
 import { notifyTelegram } from "@/lib/telegram";
 import { leadSchema } from "@/lib/lead-schema";
@@ -24,33 +23,19 @@ export async function POST(request: Request) {
     const eventDate = date ? new Date(date) : null;
     const safeDate = eventDate && !Number.isNaN(eventDate.getTime()) ? eventDate : null;
 
-    await prisma.lead.create({
+    const payload = await getCms();
+    await payload.create({
+      collection: "leads",
+      overrideAccess: true,
       data: {
         name,
         phone,
         eventType,
-        eventDate: safeDate,
-        comment: comment || null,
+        eventDate: safeDate?.toISOString(),
+        comment: comment || undefined,
+        status: "new",
       },
     });
-
-    try {
-      const payload = await getCms();
-      await payload.create({
-        collection: "leads",
-        overrideAccess: true,
-        data: {
-          name,
-          phone,
-          eventType,
-          eventDate: safeDate?.toISOString(),
-          comment: comment || undefined,
-          status: "new",
-        },
-      });
-    } catch (error) {
-      console.error("Payload lead create failed", error);
-    }
 
     await notifyTelegram(
       [

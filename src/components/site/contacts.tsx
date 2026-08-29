@@ -6,11 +6,11 @@ import { telHref } from "@/lib/utils";
 
 export function Contacts({ content }: { content: SiteContent }) {
   return (
-    <section id="contacts" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
+    <section id="contacts" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
       <div className="grid gap-8 lg:grid-cols-[1fr_1.1fr]">
         <div>
           <p className="text-xs uppercase tracking-[0.32em] text-[var(--gold)]">Контакты</p>
-          <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">
+          <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">
             Напишите дату — соберём вечер
           </h2>
           <p className="mt-4 max-w-md text-white/55">
@@ -31,8 +31,8 @@ export function Contacts({ content }: { content: SiteContent }) {
             <a href={telHref(content.phone)}>Позвонить сейчас</a>
           </Button>
         </div>
-        <Card className="p-6 sm:p-8">
-          <h3 className="mb-6 text-xl font-medium text-[var(--cream)]">Оставить заявку</h3>
+        <Card className="p-5 sm:p-8">
+          <h3 className="mb-5 text-lg font-medium text-[var(--cream)] sm:mb-6 sm:text-xl">Оставить заявку</h3>
           <LeadForm />
         </Card>
       </div>

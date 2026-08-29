@@ -4,12 +4,12 @@ import type { ReviewCard } from "@/lib/content";
 
 export function Reviews({ reviews }: { reviews: ReviewCard[] }) {
   return (
-    <section id="reviews" className="mx-auto max-w-6xl px-4 py-24 sm:px-6">
-      <p className="text-xs uppercase tracking-[0.32em] text-[var(--gold)]">Отзывы</p>
-      <h2 className="mt-3 text-3xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">После вечеринки</h2>
-      <div className="mt-12 grid gap-5 md:grid-cols-3">
+    <section id="reviews" className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24">
+      <p className="text-[10px] uppercase tracking-[0.26em] text-[var(--gold)] sm:text-xs sm:tracking-[0.32em]">Отзывы</p>
+      <h2 className="mt-3 text-2xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">После вечеринки</h2>
+      <div className="mt-8 grid gap-4 sm:mt-12 sm:gap-5 md:grid-cols-3">
         {reviews.map((review) => (
-          <Card key={review.id} className="p-6">
+          <Card key={review.id} className="p-5 sm:p-6">
             <div className="flex gap-1">
               {Array.from({ length: 5 }).map((_, index) => (
                 <Star
