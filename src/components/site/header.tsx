@@ -23,16 +23,26 @@ export function Header({ brand, phone }: { brand: string; phone: string }) {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 18);
 
+      const viewportCenter = window.innerHeight * 0.35;
+      const currentScroll = window.scrollY;
+
       const sections = navItems
         .map(({ id }) => document.getElementById(id))
         .filter(Boolean)
         .map((section) => ({
           id: section!.id,
-          top: section!.getBoundingClientRect().top,
-        }));
+          top: section!.offsetTop,
+        }))
+        .sort((a, b) => a.top - b.top);
 
-      const visible = sections.find((section) => section.top <= 180) ?? sections[0];
-      if (visible) setActiveSection(visible.id);
+      let active = sections[0]?.id || "hosts";
+      for (let i = 0; i < sections.length; i++) {
+        if (currentScroll + viewportCenter >= sections[i]!.top) {
+          active = sections[i]!.id;
+        }
+      }
+
+      setActiveSection(active);
     };
 
     handleScroll();

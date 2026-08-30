@@ -21,9 +21,9 @@ export function Tariffs({ tariffs }: { tariffs: TariffCard[] }) {
           <Card
             key={tariff.id}
             className={cn(
-              "flex w-[72vw] min-w-[72vw] snap-start flex-col p-4 transition-all duration-300 hover:-translate-y-1 sm:w-auto sm:min-w-0 sm:p-7",
+              "flex w-[72vw] min-w-[72vw] snap-start flex-col p-4 transition-all duration-200 sm:w-auto sm:min-w-0 sm:p-7",
               tariff.featured &&
-                "border-[var(--gold)]/45 bg-gradient-to-b from-[#1a1216] via-[#121216] to-[#111116] lg:-translate-y-2 lg:shadow-[0_32px_72px_-28px_rgba(196,165,116,0.45)]",
+                "border-[var(--gold)]/30 bg-gradient-to-b from-[#14121a] to-[#0f0f13] shadow-[0_14px_32px_-10px_rgba(196,165,116,0.25)] lg:shadow-[0_16px_36px_-12px_rgba(196,165,116,0.28)]",
             )}
           >
             {tariff.featured ? (

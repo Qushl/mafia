@@ -31,7 +31,7 @@ export function Contacts({ content }: { content: SiteContent }) {
             <a href={telHref(content.phone)}>Позвонить сейчас</a>
           </Button>
         </div>
-        <Card className="border-white/12 bg-[var(--panel-strong)] p-5 shadow-[0_24px_70px_-28px_rgba(0,0,0,0.85)] sm:p-8">
+        <Card className="border-white/8 bg-[#0f0f13]/60 p-5 shadow-[0_12px_24px_-8px_rgba(0,0,0,0.5)] sm:p-8">
           <h3 className="mb-5 text-lg font-medium text-[var(--cream)] sm:mb-6 sm:text-xl">Оставить заявку</h3>
           <LeadForm />
         </Card>
