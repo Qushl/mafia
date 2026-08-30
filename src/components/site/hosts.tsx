@@ -8,11 +8,11 @@ export function Hosts({ hosts }: { hosts: HostCard[] }) {
       <h2 className="mt-3 max-w-xl text-2xl font-semibold tracking-tight text-[var(--cream)] sm:text-5xl">
         Люди, которые держат стол
       </h2>
-      <div className="mt-8 flex gap-4 overflow-x-auto pb-4 sm:mt-12 sm:gap-5 md:grid md:grid-cols-4 md:overflow-visible">
+      <div className="mt-8 flex snap-x gap-4 overflow-x-auto pb-4 sm:mt-12 sm:gap-5 md:grid md:grid-cols-4 md:overflow-visible">
         {hosts.map((host) => (
-          <article key={host.id} className="min-w-[240px] shrink-0 md:min-w-0">
-            <div className="relative aspect-[3/4] overflow-hidden rounded-2xl">
-              <Image src={host.photoUrl} alt={host.name} fill className="object-cover" sizes="(max-width:768px) 70vw, 25vw" />
+          <article key={host.id} className="w-[76vw] min-w-[76vw] snap-start sm:w-auto sm:min-w-0 md:min-w-0">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:aspect-[3/4]">
+              <Image src={host.photoUrl} alt={host.name} fill className="object-cover" sizes="(max-width:768px) 76vw, 25vw" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4">
                 <p className="text-lg font-medium text-white">{host.name}</p>
