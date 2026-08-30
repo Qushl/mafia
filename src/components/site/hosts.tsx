@@ -10,10 +10,10 @@ export function Hosts({ hosts }: { hosts: HostCard[] }) {
       </h2>
       <div className="mt-8 flex snap-x gap-4 overflow-x-auto pb-4 sm:mt-12 sm:gap-5 md:grid md:grid-cols-4 md:overflow-visible">
         {hosts.map((host) => (
-          <article key={host.id} className="w-[76vw] min-w-[76vw] snap-start sm:w-auto sm:min-w-0 md:min-w-0">
-            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl sm:aspect-[3/4]">
+          <article key={host.id} className="w-[76vw] min-w-[76vw] snap-start transition-all duration-300 hover:-translate-y-1 sm:w-auto sm:min-w-0 md:min-w-0">
+            <div className="relative aspect-[4/5] overflow-hidden rounded-2xl border border-white/10 bg-[#121216] shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] sm:aspect-[3/4]">
               <Image src={host.photoUrl} alt={host.name} fill className="object-cover" sizes="(max-width:768px) 76vw, 25vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 p-4">
                 <p className="text-lg font-medium text-white">{host.name}</p>
                 <p className="text-xs uppercase tracking-[0.16em] text-[var(--gold)]">{host.role}</p>

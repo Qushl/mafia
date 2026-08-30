@@ -67,7 +67,7 @@ export function LeadForm({
             name="eventType"
             required
             defaultValue=""
-            className="flex h-11 w-full rounded-xl border border-white/10 bg-black/40 px-4 text-sm text-[var(--cream)] outline-none focus:border-[var(--gold)]/50"
+            className="flex h-11 w-full rounded-xl border border-white/10 bg-[#0d0d11]/80 px-4 text-sm text-[var(--cream)] outline-none transition focus:border-[var(--gold)]/50 focus:ring-2 focus:ring-[var(--gold)]/20"
           >
             <option value="" disabled>
               Выберите
@@ -89,7 +89,7 @@ export function LeadForm({
         <Textarea id="comment" name="comment" placeholder="Площадка, число гостей, пожелания" />
       </div>
       <label className="flex items-start gap-3 text-sm leading-relaxed text-white/60">
-        <input name="consent" type="checkbox" required className="mt-1 accent-[var(--gold)]" />
+        <input name="consent" type="checkbox" required className="mt-1 h-4 w-4 accent-[var(--gold)]" />
         <span>
           Я согласен на обработку персональных данных и принимаю{" "}
           <Link href="/privacy" className="text-[var(--gold)] underline underline-offset-4 hover:text-white">
@@ -99,7 +99,7 @@ export function LeadForm({
       </label>
       {message ? <p className="text-sm text-red-400">{message}</p> : null}
       {status === "ok" ? <p className="text-sm text-[var(--gold)]">Заявка ушла. Мы наберём вас.</p> : null}
-      <Button type="submit" size="lg" disabled={status === "loading"}>
+      <Button type="submit" size="lg" disabled={status === "loading"} className="h-12 w-full sm:h-12">
         {status === "loading" ? "Отправляем…" : "Отправить заявку"}
       </Button>
     </form>

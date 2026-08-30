@@ -11,7 +11,7 @@ export function EventTypes({ items }: { items: EventTypeCard[] }) {
       </h2>
       <div className="-mx-4 mt-8 flex snap-x gap-3 overflow-x-auto px-4 pb-4 sm:mx-0 sm:mt-12 sm:grid sm:gap-6 sm:overflow-visible sm:px-0 sm:pb-0 md:grid-cols-3">
         {items.map((item) => (
-          <article key={item.id} className="group w-[76vw] min-w-[76vw] snap-start overflow-hidden rounded-xl border border-white/10 sm:w-auto sm:min-w-0 sm:rounded-2xl">
+          <article key={item.id} className="group w-[76vw] min-w-[76vw] snap-start overflow-hidden rounded-2xl border border-white/10 bg-[#121216] shadow-[0_18px_40px_-24px_rgba(0,0,0,0.9)] transition-all duration-300 hover:-translate-y-1 hover:border-[var(--gold)]/30 hover:shadow-[0_28px_60px_-26px_rgba(196,165,116,0.36)] sm:w-auto sm:min-w-0">
             <div className="relative aspect-[5/4] sm:aspect-[4/5]">
               <Image
                 src={item.photoUrl}
